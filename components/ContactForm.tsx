@@ -3,200 +3,136 @@
 import { motion } from "framer-motion";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
+import { fadeUpVariant, viewportOnce } from "@/lib/animations";
+
+const inputClass =
+  "w-full px-4 py-3 rounded-xl bg-[#1a1a1a] border border-[#2a2a2a] text-white placeholder-white/25 focus:border-yellow-400/60 focus:ring-1 focus:ring-yellow-400/30 outline-none transition-all text-sm";
+
+const labelClass = "block text-xs font-semibold text-white/50 uppercase tracking-[0.08em] mb-2";
 
 export default function ContactForm() {
-    const [formState, setFormState] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        billValue: "",
-        message: ""
-    });
+  const [formState, setFormState] = useState({
+    name: "", email: "", phone: "", billValue: "", message: ""
+  });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Here you would typically send the data to an API
-        alert("Obrigado! Recebemos seus dados e entraremos em contato em breve.");
-        setFormState({ name: "", email: "", phone: "", billValue: "", message: "" });
-    };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Obrigado! Recebemos seus dados e entraremos em contato em breve.");
+    setFormState({ name: "", email: "", phone: "", billValue: "", message: "" });
+  };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormState({
-            ...formState,
-            [e.target.name]: e.target.value
-        });
-    };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+  };
 
-    return (
-        <section id="contact" className="py-24 bg-white/70 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_20%,rgba(41,177,127,0.14),transparent_35%)]"></div>
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
-                    <motion.span
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        className="section-chip mb-2"
-                    >
-                        Solicite seu Orçamento
-                    </motion.span>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-                    >
-                        Comece a economizar agora
-                    </motion.h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
-                        Preencha o formulário abaixo e nossos especialistas farão uma simulação personalizada
-                        de quanto você pode economizar com a Dorata.
-                    </p>
+  return (
+    <section id="contact" className="py-28 bg-[#0a0a0a]">
+      <div className="mx-auto max-w-[1200px] px-6">
+        {/* Header */}
+        <div className="max-w-2xl mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            className="section-chip mb-4 block w-fit"
+          >
+            Solicite seu Orçamento
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}
+            className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight tracking-[-0.02em]"
+          >
+            Comece a{" "}
+            <span className="text-yellow-400">economizar</span> agora
+          </motion.h2>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Contact Info */}
+          <motion.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="bg-[#111111] border border-[#2a2a2a] rounded-2xl p-8 lg:p-10 space-y-8"
+          >
+            <h3 className="font-display text-2xl font-bold text-white">Fale Conosco</h3>
+
+            {[
+              { icon: <Phone size={20} className="text-yellow-400" />, title: "Telefone / WhatsApp", lines: ["(00) 99999-9999", "Seg - Sex, 8h às 18h"] },
+              { icon: <Mail size={20} className="text-yellow-400" />, title: "Email", lines: ["contato@doratasolar.com.br"] },
+              { icon: <MapPin size={20} className="text-yellow-400" />, title: "Endereço", lines: ["Av. Paulista, 1000 - Sala 123", "Bela Vista, São Paulo - SP"] },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-yellow-400/10 border border-yellow-400/20 rounded-xl flex items-center justify-center shrink-0">
+                  {item.icon}
                 </div>
-
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
-                    {/* Contact Info Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-gradient-to-br from-primary to-[#0a5a42] text-white p-10 rounded-2xl shadow-xl relative overflow-hidden"
-                    >
-                        {/* Decorative circles */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-
-                        <h3 className="text-2xl font-bold mb-8">Fale Conosco</h3>
-
-                        <div className="space-y-8 relative z-10">
-                            <div className="flex items-start gap-4">
-                                <div className="bg-white/20 p-3 rounded-lg">
-                                    <Phone size={24} className="text-accent" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-lg mb-1">Telefone / WhatsApp</h4>
-                                    <p className="text-white/80">(00) 99999-9999</p>
-                                    <p className="text-white/60 text-sm">Seg - Sex, 8h às 18h</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="bg-white/20 p-3 rounded-lg">
-                                    <Mail size={24} className="text-accent" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-lg mb-1">Email</h4>
-                                    <p className="text-white/80">contato@doratasolar.com.br</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="bg-white/20 p-3 rounded-lg">
-                                    <MapPin size={24} className="text-accent" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-lg mb-1">Endereço</h4>
-                                    <p className="text-white/80">
-                                        Av. Paulista, 1000 - Sala 123<br />
-                                        Bela Vista, São Paulo - SP
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Form Side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="glass-strong p-8 rounded-2xl shadow-lg border border-white/60"
-                    >
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        required
-                                        value={formState.name}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-white/70 focus:ring-2 focus:ring-secondary/40 focus:border-transparent outline-none transition-all focus-ring"
-                                        placeholder="Seu nome"
-                                    />
-                                </div>
-                                <div>
-                                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">WhatsApp</label>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        required
-                                        value={formState.phone}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-white/70 focus:ring-2 focus:ring-secondary/40 focus:border-transparent outline-none transition-all focus-ring"
-                                        placeholder="(00) 00000-0000"
-                                    />
-                                </div>
-                            </div>
-
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                    value={formState.email}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-white/70 focus:ring-2 focus:ring-secondary/40 focus:border-transparent outline-none transition-all focus-ring"
-                                    placeholder="seu@email.com"
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="billValue" className="block text-sm font-medium text-gray-700 mb-2">Valor Médio da Conta de Luz</label>
-                                <select
-                                    id="billValue"
-                                    name="billValue"
-                                    required
-                                    value={formState.billValue}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-white/70 focus:ring-2 focus:ring-secondary/40 focus:border-transparent outline-none transition-all focus-ring"
-                                >
-                                    <option value="">Selecione uma opção</option>
-                                    <option value="ate-500">Até R$ 500,00</option>
-                                    <option value="500-1000">R$ 500,00 a R$ 1.000,00</option>
-                                    <option value="1000-2500">R$ 1.000,00 a R$ 2.500,00</option>
-                                    <option value="2500-5000">R$ 2.500,00 a R$ 5.000,00</option>
-                                    <option value="acima-5000">Acima de R$ 5.000,00</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Mensagem (Opcional)</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows={4}
-                                    value={formState.message}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-white/70 focus:ring-2 focus:ring-secondary/40 focus:border-transparent outline-none transition-all resize-none focus-ring"
-                                    placeholder="Gostaria de saber mais sobre..."
-                                ></textarea>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-lg hover:brightness-110 transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-                            >
-                                <Send size={20} />
-                                Solicitar Orçamento Grátis
-                            </button>
-                        </form>
-                    </motion.div>
+                <div>
+                  <p className="font-semibold text-white text-sm mb-1">{item.title}</p>
+                  {item.lines.map((l, j) => (
+                    <p key={j} className="text-white/50 text-sm">{l}</p>
+                  ))}
                 </div>
-            </div>
-        </section>
-    );
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Form */}
+          <motion.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="bg-[#111111] border border-[#2a2a2a] rounded-2xl p-8 lg:p-10"
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid md:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="name" className={labelClass}>Nome Completo</label>
+                  <input type="text" id="name" name="name" required value={formState.name} onChange={handleChange} className={inputClass} placeholder="Seu nome" />
+                </div>
+                <div>
+                  <label htmlFor="phone" className={labelClass}>WhatsApp</label>
+                  <input type="tel" id="phone" name="phone" required value={formState.phone} onChange={handleChange} className={inputClass} placeholder="(00) 00000-0000" />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="email" className={labelClass}>Email</label>
+                <input type="email" id="email" name="email" required value={formState.email} onChange={handleChange} className={inputClass} placeholder="seu@email.com" />
+              </div>
+
+              <div>
+                <label htmlFor="billValue" className={labelClass}>Valor Médio da Conta de Luz</label>
+                <select id="billValue" name="billValue" required value={formState.billValue} onChange={handleChange} className={inputClass}>
+                  <option value="">Selecione uma opção</option>
+                  <option value="ate-500">Até R$ 500,00</option>
+                  <option value="500-1000">R$ 500,00 a R$ 1.000,00</option>
+                  <option value="1000-2500">R$ 1.000,00 a R$ 2.500,00</option>
+                  <option value="2500-5000">R$ 2.500,00 a R$ 5.000,00</option>
+                  <option value="acima-5000">Acima de R$ 5.000,00</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className={labelClass}>Mensagem (Opcional)</label>
+                <textarea id="message" name="message" rows={4} value={formState.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Gostaria de saber mais sobre..." />
+              </div>
+
+              <button
+                type="submit"
+                className="btn-primary w-full flex items-center justify-center gap-2 mt-2"
+              >
+                <Send size={16} />
+                Solicitar Orçamento Grátis
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }

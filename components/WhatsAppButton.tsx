@@ -4,20 +4,20 @@ import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function WhatsAppButton() {
-    return (
-        <motion.a
-            href="https://wa.me/" // Add actual number
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 1 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-primary to-secondary text-white p-4 rounded-full shadow-[0_18px_32px_rgba(15,122,88,0.42)] flex items-center justify-center hover:brightness-110 transition-colors ring-4 ring-white/40"
-            aria-label="Fale conosco no WhatsApp"
-        >
-            <MessageCircle size={32} />
-        </motion.a>
-    );
+  return (
+    <motion.a
+      href="https://wa.me/"
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 1.5, duration: 0.4, ease: "easeOut" }}
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.92 }}
+      className="fixed bottom-6 right-6 z-50 bg-yellow-400 text-black p-4 rounded-full shadow-[0_8px_24px_rgba(250,204,21,0.3)] flex items-center justify-center hover:bg-yellow-300 transition-colors"
+      aria-label="Fale conosco no WhatsApp"
+    >
+      <MessageCircle size={28} />
+    </motion.a>
+  );
 }

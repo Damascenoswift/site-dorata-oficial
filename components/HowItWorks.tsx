@@ -2,79 +2,92 @@
 
 import { motion } from "framer-motion";
 import { UserPlus, FileText, Sun } from "lucide-react";
+import { staggerContainer, staggerItem, viewportOnce } from "@/lib/animations";
 
 export default function HowItWorks() {
-    const steps = [
-        {
-            title: "Cadastro Simples",
-            description: "Preencha seus dados e envie uma foto da sua conta de luz. É rápido e 100% digital.",
-            icon: <UserPlus size={32} className="text-white" />,
-        },
-        {
-            title: "Análise e Contrato",
-            description: "Receba sua proposta de economia garantida e assine o contrato digitalmente.",
-            icon: <FileText size={32} className="text-white" />,
-        },
-        {
-            title: "Economia Ativada",
-            description: "Pronto! Você começa a receber os créditos de energia solar e paga menos na sua conta.",
-            icon: <Sun size={32} className="text-white" />,
-        },
-    ];
+  const steps = [
+    {
+      number: "01",
+      title: "Cadastro Simples",
+      description: "Preencha seus dados e envie uma foto da sua conta de luz. É rápido e 100% digital.",
+      icon: <UserPlus size={20} className="text-black" />,
+    },
+    {
+      number: "02",
+      title: "Análise e Contrato",
+      description: "Receba sua proposta de economia garantida e assine o contrato digitalmente.",
+      icon: <FileText size={20} className="text-black" />,
+    },
+    {
+      number: "03",
+      title: "Economia Ativada",
+      description: "Pronto! Você começa a receber os créditos de energia solar e paga menos na sua conta.",
+      icon: <Sun size={20} className="text-black" />,
+    },
+  ];
 
-    return (
-        <section className="py-24 bg-gradient-to-b from-dark to-[#0a3228] text-white relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <div className="absolute -bottom-24 left-14 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
+  return (
+    <section className="py-28 bg-[#111111] border-y border-[#2a2a2a]">
+      <div className="mx-auto max-w-[1200px] px-6">
+        {/* Header */}
+        <div className="max-w-2xl mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            className="section-chip mb-4 block w-fit"
+          >
+            Passo a Passo
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}
+            className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight tracking-[-0.02em]"
+          >
+            Veja como é simples{" "}
+            <span className="text-yellow-400">economizar</span>
+          </motion.h2>
+        </div>
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-20">
-                    <motion.span
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        className="section-chip border-white/20 bg-white/10 text-white mb-2"
-                    >
-                        Passo a Passo
-                    </motion.span>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl font-bold"
-                    >
-                        Veja como é simples economizar
-                    </motion.h2>
+        {/* Steps */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="grid md:grid-cols-3 gap-12 md:gap-8 relative"
+        >
+          {/* Connector line (desktop) */}
+          <div className="hidden md:block absolute top-8 left-[20%] right-[20%] h-px bg-[#2a2a2a]" />
+
+          {steps.map((step, index) => (
+            <motion.div key={index} variants={staggerItem} className="relative">
+              {/* Number + icon */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative">
+                  <span className="font-display text-6xl font-extrabold text-yellow-400/20 leading-none select-none">
+                    {step.number}
+                  </span>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-9 h-9 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg shadow-yellow-400/20">
+                      {step.icon}
+                    </div>
+                  </div>
                 </div>
+              </div>
 
-                <div className="grid md:grid-cols-3 gap-12 relative">
-                    {/* Connection Line (Desktop) */}
-                    <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-white/20 border-t border-dashed border-white/40 z-0"></div>
-
-                    {steps.map((step, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.2 }}
-                            viewport={{ once: true }}
-                            className="relative z-10 flex flex-col items-center text-center glass rounded-3xl p-8 border border-white/16"
-                        >
-                            <div className="w-24 h-24 bg-gradient-to-br from-accent to-yellow-500 rounded-full flex items-center justify-center shadow-lg mb-8 ring-8 ring-white/10">
-                                {step.icon}
-                            </div>
-                            <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                            <p className="text-white/80 leading-relaxed max-w-sm">
-                                {step.description}
-                            </p>
-
-                            {/* Step number badge */}
-                            <div className="absolute top-0 right-1/4 translate-x-4 bg-white text-primary font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-md">
-                                {index + 1}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+              <h3 className="font-display text-xl font-bold text-white mb-3">
+                {step.title}
+              </h3>
+              <p className="text-white/50 leading-relaxed">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
 }

@@ -32,9 +32,9 @@ export default function Navbar() {
           <Image
             src="/images/projects/Logo Deitada - Fundo transparente.png"
             alt="Dorata Energia"
-            width={160}
-            height={36}
-            className="h-9 w-auto"
+            width={220}
+            height={50}
+            className="h-14 w-auto"
             priority
           />
         </Link>

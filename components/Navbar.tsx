@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -28,9 +29,14 @@ export default function Navbar() {
       <div className="mx-auto max-w-[1200px] px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="font-display text-xl font-bold text-white tracking-tight">
-            Dorata<span className="text-yellow-400">Solar</span>
-          </span>
+          <Image
+            src="/images/projects/Logo Deitada - Fundo transparente.png"
+            alt="Dorata Energia"
+            width={160}
+            height={36}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

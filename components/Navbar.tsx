@@ -34,7 +34,7 @@ export default function Navbar() {
             alt="Dorata Energia"
             width={220}
             height={50}
-            className="h-14 w-auto brightness-0 invert"
+            className="h-20 w-auto brightness-0 invert"
             priority
           />
         </Link>

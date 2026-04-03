@@ -11,6 +11,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import RentalBlock from "@/components/RentalBlock";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <RevealOnScroll delay={0.1}>
         <HowItWorks />
       </RevealOnScroll>
+      <RentalBlock />
       <RevealOnScroll delay={0.1}>
         <Projects />
       </RevealOnScroll>

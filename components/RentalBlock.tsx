@@ -67,6 +67,23 @@ export default function RentalBlock() {
 
       <div className="relative mx-auto max-w-[1200px] px-6">
         <div className="max-w-xl">
+          {/* Logo Rental */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          >
+            <Image
+              src="/images/projects/logo nova2.png"
+              alt="Energia por Assinatura"
+              width={629}
+              height={586}
+              className="h-16 w-auto"
+            />
+          </motion.div>
+
           {/* Chip */}
           <motion.span
             initial={{ opacity: 0, y: 16 }}

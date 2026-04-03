@@ -28,7 +28,7 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-28 bg-[#111111] border-y border-[#2a2a2a]">
+    <section className="py-20 bg-[#111111] border-y border-[#2a2a2a]">
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
           {/* Left: Header */}

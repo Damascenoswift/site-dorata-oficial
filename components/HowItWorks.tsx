@@ -27,7 +27,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-28 bg-[#111111] border-y border-[#2a2a2a]">
+    <section className="py-20 bg-[#111111] border-y border-[#2a2a2a]">
       <div className="mx-auto max-w-[1200px] px-6">
         {/* Header */}
         <div className="max-w-2xl mb-20">

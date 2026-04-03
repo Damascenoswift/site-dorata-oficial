@@ -30,7 +30,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-28 bg-[#111111] border-y border-[#2a2a2a]">
+    <section id="testimonials" className="py-20 bg-[#111111] border-y border-[#2a2a2a]">
       <div className="mx-auto max-w-[1200px] px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">

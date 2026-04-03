@@ -29,7 +29,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="solutions" className="py-28 bg-[#0a0a0a]">
+    <section id="solutions" className="py-20 bg-[#0a0a0a]">
       <div className="mx-auto max-w-[1200px] px-6">
         {/* Header */}
         <div className="max-w-2xl mb-16">

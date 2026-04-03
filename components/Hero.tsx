@@ -28,7 +28,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-            className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold text-white leading-[1.05] tracking-[-0.03em] mb-6"
+            className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-white leading-[1.05] tracking-[-0.03em] mb-6"
           >
             Conectamos você ao{" "}
             <span className="text-yellow-400">futuro</span>{" "}
@@ -51,7 +51,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4 mb-16"
+            className="flex flex-col sm:flex-row gap-4 mb-10"
           >
             <Link href="#contact" className="btn-primary inline-flex items-center justify-center gap-2">
               Fale com um Especialista <ArrowRight size={18} />

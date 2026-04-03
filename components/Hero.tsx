@@ -10,7 +10,7 @@ export default function Hero() {
       {/* Glow decorativo amarelo sutil */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-yellow-400/8 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="mx-auto max-w-[1200px] px-6 w-full pt-28 pb-20">
+      <div className="mx-auto max-w-[1200px] px-6 w-full pt-40 pb-20">
         <div className="max-w-4xl">
 
           {/* Chip */}

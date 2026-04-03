@@ -57,7 +57,7 @@ export default function HowItWorks() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
-          className="grid md:grid-cols-3 gap-12 md:gap-8 relative"
+          className="grid md:grid-cols-3 gap-8 relative"
         >
           {/* Connector line (desktop) */}
           <div className="hidden md:block absolute top-8 left-[20%] right-[20%] h-px bg-[#2a2a2a]" />

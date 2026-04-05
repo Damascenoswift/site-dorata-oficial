@@ -1,100 +1,94 @@
-"use client";
-
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+'use client'
+import { motion } from 'framer-motion'
+import { ArrowDown } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#0a0a0a] overflow-hidden">
-      {/* Glow decorativo amarelo sutil */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-yellow-400/8 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="mx-auto max-w-[1200px] px-6 w-full pt-40 pb-20">
-        <div className="max-w-4xl">
-
-          {/* Chip */}
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="section-chip mb-8 block w-fit"
-          >
-            Energia inteligente para empresas e residências
-          </motion.span>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-            className="font-display text-[clamp(2.5rem,6vw,4.5rem)] font-extrabold text-white leading-[1.05] tracking-[-0.03em] mb-6"
-          >
-            Conectamos você ao{" "}
-            <span className="text-yellow-400">futuro</span>{" "}
-            com energia limpa.
-          </motion.h1>
-
-          {/* Subtítulo */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-            className="text-lg md:text-xl text-white/50 mb-10 max-w-2xl leading-relaxed font-light"
-          >
-            Na Dorata, transformamos a tecnologia solar em economia real.
-            Soluções inteligentes para um mundo mais sustentável.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4 mb-10"
-          >
-            <Link href="#contact" className="btn-primary inline-flex items-center justify-center gap-2">
-              Fale com um Especialista <ArrowRight size={18} />
-            </Link>
-            <Link href="#solutions" className="btn-outline inline-flex items-center justify-center">
-              Conheça as Soluções
-            </Link>
-          </motion.div>
-
-          {/* Stats inline */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-8 sm:gap-12 border-t border-[#2a2a2a] pt-10"
-          >
-            {[
-              { value: "20%", label: "economia média mensal" },
-              { value: "500+", label: "projetos executados" },
-              { value: "100%", label: "energia renovável" },
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col">
-                <span className="font-display text-3xl font-bold text-yellow-400 leading-none mb-1">
-                  {stat.value}
-                </span>
-                <span className="text-sm text-white/40">{stat.label}</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image/video */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/hero-usina.jpg')" }}
+        />
+        {/* Gradiente escuro sobre a imagem */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
       </div>
 
-      {/* Scroll indicator */}
+      {/* Conteúdo */}
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        {/* Chip de autoridade */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 rounded-full px-4 py-1.5 text-yellow-400 text-sm font-medium mb-8"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+          Referência no Norte do Mato Grosso
+        </motion.div>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="font-display text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-6"
+        >
+          Energia limpa para{' '}
+          <span className="text-yellow-400">Sinop</span>
+          <br />e região.
+        </motion.h1>
+
+        {/* Subtítulo */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+          className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10"
+        >
+          Instalamos usinas fotovoltaicas para empresas e residências com qualidade garantida e suporte local.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <a
+            href="https://wa.me/556599999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary px-8 py-4 text-base font-bold rounded-full"
+          >
+            Falar no WhatsApp
+          </a>
+          <a
+            href="#projetos"
+            className="btn-outline px-8 py-4 text-base font-bold rounded-full"
+          >
+            Ver Projetos
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator estilo Apple */}
       <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 8, 0] }}
-        transition={{ delay: 1.2, duration: 1.8, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30"
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
       >
-        <div className="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-1.5">
-          <div className="w-0.5 h-2 bg-white/40 rounded-full" />
-        </div>
+        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <ArrowDown size={18} />
+        </motion.div>
       </motion.div>
     </section>
-  );
+  )
 }

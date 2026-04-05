@@ -1,50 +1,56 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import Services from "@/components/Services";
-import Projects from "@/components/Projects";
-import HowItWorks from "@/components/HowItWorks";
-import Testimonials from "@/components/Testimonials";
-import About from "@/components/About";
-import FAQ from "@/components/FAQ";
-import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import RevealOnScroll from "@/components/RevealOnScroll";
-import RentalBlock from "@/components/RentalBlock";
+import Navbar from '@/components/Navbar'
+import Hero from '@/components/Hero'
+import Stats from '@/components/Stats'
+import ScrollStory from '@/components/ScrollStory'
+import WinnerBlocks from '@/components/WinnerBlocks'
+import LogoCarousel from '@/components/LogoCarousel'
+import ProjectReel from '@/components/ProjectReel'
+import SinopMapDynamic from '@/components/SinopMapDynamic'
+import Testimonials from '@/components/Testimonials'
+import RentalBlock from '@/components/RentalBlock'
+import FAQ from '@/components/FAQ'
+import ContactForm from '@/components/ContactForm'
+import Footer from '@/components/Footer'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
+
+      {/* 01 — Hero cinematográfico */}
       <Hero />
-      <RevealOnScroll>
-        <Stats />
-      </RevealOnScroll>
-      <RevealOnScroll delay={0.1}>
-        <Services />
-      </RevealOnScroll>
-      <RevealOnScroll delay={0.1}>
-        <HowItWorks />
-      </RevealOnScroll>
+
+      {/* 02 — Contadores animados */}
+      <Stats />
+
+      {/* 03 — Scroll Story (Apple-style) */}
+      <ScrollStory />
+
+      {/* 04 — Blocos Líder (JinkoSolar-style) */}
+      <WinnerBlocks />
+
+      {/* 05A — Logo Carousel */}
+      <LogoCarousel />
+
+      {/* 05B — Reel de fotos */}
+      <ProjectReel />
+
+      {/* 05C — Mapa interativo */}
+      <SinopMapDynamic />
+
+      {/* 06 — Depoimentos */}
+      <Testimonials />
+
+      {/* 07 — Energia por Assinatura */}
       <RentalBlock />
-      <RevealOnScroll delay={0.1}>
-        <Projects />
-      </RevealOnScroll>
-      <RevealOnScroll delay={0.1}>
-        <Testimonials />
-      </RevealOnScroll>
-      <RevealOnScroll delay={0.1}>
-        <About />
-      </RevealOnScroll>
-      <RevealOnScroll delay={0.1}>
-        <FAQ />
-      </RevealOnScroll>
-      <RevealOnScroll delay={0.1}>
-        <ContactForm />
-      </RevealOnScroll>
+
+      {/* 08 — FAQ + Contato */}
+      <FAQ />
+      <ContactForm />
+
       <Footer />
       <WhatsAppButton />
     </main>
-  );
+  )
 }

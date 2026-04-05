@@ -1,58 +1,60 @@
-"use client";
+'use client'
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'framer-motion'
 
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { fadeUpVariant, staggerContainer, viewportOnce } from "@/lib/animations";
-
-function Counter({ value, label }: { value: string; label: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const numericValue = parseInt(value.replace(/\D/g, ""));
-  const suffix = value.includes("+") ? "+" : "";
-
-  const spring = useSpring(0, { mass: 1, stiffness: 75, damping: 15 });
-  const displayValue = useTransform(spring, (v) =>
-    Math.round(v).toLocaleString("pt-BR") + suffix
-  );
+function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   useEffect(() => {
-    if (isInView) spring.set(numericValue);
-  }, [isInView, numericValue, spring]);
+    if (!isInView) return
+    let start = 0
+    const duration = 2000
+    const step = Math.ceil(target / (duration / 16))
+    const timer = setInterval(() => {
+      start += step
+      if (start >= target) {
+        setCount(target)
+        clearInterval(timer)
+      } else {
+        setCount(start)
+      }
+    }, 16)
+    return () => clearInterval(timer)
+  }, [isInView, target])
 
   return (
-    <motion.div ref={ref} variants={fadeUpVariant} className="text-center">
-      <motion.p className="font-display text-4xl lg:text-5xl font-bold text-yellow-400 mb-2 leading-none">
-        {displayValue}
-      </motion.p>
-      <p className="text-white/50 text-sm font-medium">{label}</p>
-    </motion.div>
-  );
+    <span ref={ref} className="tabular-nums">
+      {count}{suffix}
+    </span>
+  )
 }
 
-export default function Stats() {
-  const stats = [
-    { label: "Painéis Instalados",     value: "400.000+" },
-    { label: "Energia Gerada (kWh)",   value: "24.000.000+" },
-    { label: "Projetos Executados",    value: "500+" },
-    { label: "Ton. de CO2 Evitadas",   value: "10.000+" },
-  ];
+const stats = [
+  { value: 20, suffix: '+', label: 'Usinas instaladas' },
+  { value: 37, suffix: '', label: 'Empresas atendidas' },
+  { value: 5, suffix: '+', label: 'Anos em Sinop' },
+  { value: 100, suffix: '%', label: 'Satisfação garantida' },
+]
 
+export default function Stats() {
   return (
-    <section className="bg-[#111111] py-20 border-y border-[#2a2a2a]">
-      <div className="mx-auto max-w-[1200px] px-6">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16"
-        >
+    <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
-            <Counter key={i} value={stat.value} label={stat.label} />
+            <div key={i} className="text-center">
+              <div className="font-display text-5xl md:text-6xl font-black text-yellow-400 mb-2">
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="text-sm text-white/50 font-medium uppercase tracking-wider">
+                {stat.label}
+              </div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
-  );
+  )
 }

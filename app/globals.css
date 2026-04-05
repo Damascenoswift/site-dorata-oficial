@@ -138,3 +138,15 @@ body {
   animation: scroll-reverse 40s linear infinite;
   will-change: transform;
 }
+
+/* Leaflet popup styles */
+.dorata-popup .leaflet-popup-content-wrapper {
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+.dorata-popup .leaflet-popup-tip {
+  background: #1a1a1a;
+}

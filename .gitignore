@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local codex worktrees
 /.claude/worktrees/
+.superpowers/
+public/images/usinas/*.MP4
+public/images/usinas/*.mp4

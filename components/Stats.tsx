@@ -24,31 +24,36 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
     return () => clearInterval(timer)
   }, [isInView, target])
 
+  const formatted = count.toLocaleString('pt-BR')
+
   return (
     <span ref={ref} className="tabular-nums">
-      {count}{suffix}
+      {formatted}{suffix}
     </span>
   )
 }
 
 const stats = [
-  { value: 20, suffix: '+', label: 'Usinas instaladas' },
-  { value: 37, suffix: '', label: 'Empresas atendidas' },
-  { value: 5, suffix: '+', label: 'Anos em Sinop' },
-  { value: 100, suffix: '%', label: 'Satisfação garantida' },
+  { value: 400000, suffix: '+', label: 'Painéis Instalados' },
+  { value: 24000000, suffix: '+', label: 'Energia Gerada (kWh)' },
+  { value: 500, suffix: '+', label: 'Projetos Executados' },
+  { value: 10000, suffix: '+', label: 'Ton. de CO₂ Evitadas' },
 ]
 
 export default function Stats() {
   return (
     <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 xl:gap-8">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="font-display text-5xl md:text-6xl font-black text-yellow-400 mb-2">
+            <div key={i} className="text-center min-w-0 px-2">
+              <div
+                className="font-sans font-black text-yellow-400 mb-3 leading-none tracking-tight"
+                style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3.2rem)' }}
+              >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-sm text-white/50 font-medium uppercase tracking-wider">
+              <div className="text-xs md:text-sm text-white/50 font-medium uppercase tracking-widest">
                 {stat.label}
               </div>
             </div>

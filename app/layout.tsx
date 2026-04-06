@@ -16,8 +16,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dorata Solar",
-  description: "Conectamos você ao futuro com energia limpa e soluções inteligentes.",
+  title: "Dorata",
+  description: "Instalamos usinas fotovoltaicas para empresas e residências em Sinop e região com qualidade garantida e suporte local.",
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 export default function RootLayout({

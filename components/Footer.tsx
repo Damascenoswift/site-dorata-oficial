@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Linkedin, Facebook, MessageCircle, MapPin, Phone, Mail } from "lucide-react";
 
@@ -9,9 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-5">
-              <span className="font-display text-xl font-bold text-white">
-                Dorata<span className="text-yellow-400">Solar</span>
-              </span>
+              <Image
+                src="/images/projects/Logo Deitada - Fundo transparente.png"
+                alt="Dorata Solucoes Eletricas"
+                width={946}
+                height={946}
+                className="h-auto w-[220px]"
+              />
             </Link>
             <p className="text-white/40 text-sm leading-relaxed mb-6">
               Transformando o futuro com energia limpa e soluções inteligentes para sua casa e empresa.

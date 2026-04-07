@@ -7,24 +7,36 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrollY(window.scrollY);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinkClass = "font-medium transition-colors text-white/60 hover:text-white text-sm";
+  const scrollProgress = Math.min(scrollY / 180, 1);
+
+  const headerVerticalPadding = 18 - 8 * scrollProgress;
+  const logoHeight = 64 - 22 * scrollProgress;
+  const headerBgAlpha = 0.25 + 0.55 * scrollProgress;
+  const blurPx = 8 + 10 * scrollProgress;
+  const borderAlpha = 0.12 + 0.22 * scrollProgress;
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#2a2a2a] py-4"
-          : "bg-transparent py-6"
-      }`}
+      className="fixed top-0 left-0 w-full z-50 transition-colors duration-200"
+      style={{
+        paddingTop: `${headerVerticalPadding}px`,
+        paddingBottom: `${headerVerticalPadding}px`,
+        backgroundColor: `rgba(10, 10, 10, ${headerBgAlpha})`,
+        backdropFilter: `blur(${blurPx}px)`,
+        WebkitBackdropFilter: `blur(${blurPx}px)`,
+        borderBottom: `1px solid rgba(255, 255, 255, ${borderAlpha})`,
+      }}
     >
       <div className="mx-auto max-w-[1200px] px-6 flex justify-between items-center">
         {/* Logo */}
@@ -34,7 +46,8 @@ export default function Navbar() {
             alt="Dorata Energia"
             width={220}
             height={50}
-            className="h-40 w-auto"
+            className="w-auto transition-all duration-200"
+            style={{ height: `${logoHeight}px` }}
             priority
           />
         </Link>

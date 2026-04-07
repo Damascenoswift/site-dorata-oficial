@@ -71,15 +71,15 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-yellow-400 shrink-0" />
-                <span>(00) 00000-0000</span>
+                <span>66 99983 2633</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-yellow-400 shrink-0" />
-                <span>contato@doratasolar.com.br</span>
+                <span>suporte@dorataenergia.com</span>
               </li>
               <li className="pt-2">
                 <a
-                  href="https://wa.me/"
+                  href="https://wa.me/5566999832633"
                   className="btn-primary inline-flex items-center gap-2 text-sm px-5 py-2.5"
                 >
                   <MessageCircle size={16} />

@@ -62,8 +62,8 @@ export default function ContactForm() {
             <h3 className="font-display text-2xl font-bold text-white">Fale Conosco</h3>
 
             {[
-              { icon: <Phone size={20} className="text-yellow-400" />, title: "Telefone / WhatsApp", lines: ["(00) 99999-9999", "Seg - Sex, 8h às 18h"] },
-              { icon: <Mail size={20} className="text-yellow-400" />, title: "Email", lines: ["contato@doratasolar.com.br"] },
+              { icon: <Phone size={20} className="text-yellow-400" />, title: "Telefone / WhatsApp", lines: ["66 99983 2633", "Seg - Sex, 8h às 18h"] },
+              { icon: <Mail size={20} className="text-yellow-400" />, title: "Email", lines: ["suporte@dorataenergia.com"] },
               { icon: <MapPin size={20} className="text-yellow-400" />, title: "Endereço", lines: ["Av. Paulista, 1000 - Sala 123", "Bela Vista, São Paulo - SP"] },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4">
@@ -96,7 +96,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <label htmlFor="phone" className={labelClass}>WhatsApp</label>
-                  <input type="tel" id="phone" name="phone" required value={formState.phone} onChange={handleChange} className={inputClass} placeholder="(00) 00000-0000" />
+                  <input type="tel" id="phone" name="phone" required value={formState.phone} onChange={handleChange} className={inputClass} placeholder="66 99983 2633" />
                 </div>
               </div>
 

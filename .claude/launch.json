@@ -4,7 +4,7 @@
     {
       "name": "Next.js Dev",
       "runtimeExecutable": "/bin/sh",
-      "runtimeArgs": ["-c", "PATH=/usr/local/bin:$PATH node node_modules/.bin/next dev --webpack -p 3001"],
+      "runtimeArgs": ["-c", "cd '/Users/guilhermedamasceno/Dorata - site' && PATH=/usr/local/bin:$PATH node node_modules/.bin/next dev --webpack -p 3001"],
       "port": 3001
     }
   ]

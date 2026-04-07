@@ -67,7 +67,7 @@ export default function Footer() {
             <ul className="space-y-4 text-white/40 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-yellow-400 shrink-0 mt-0.5" />
-                <span>Endereço da Empresa, 123<br />Cidade - UF</span>
+                <span>Av. André Antônio Maggi, 421B<br />Jardim Maringá, Sinop - MT, 78559-899</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-yellow-400 shrink-0" />

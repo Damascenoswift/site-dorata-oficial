@@ -16,13 +16,13 @@ export default function Hero() {
       </div>
 
       {/* Conteúdo */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mt-16 md:mt-20">
         {/* Chip de autoridade */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 rounded-full px-4 py-1.5 text-yellow-400 text-sm font-medium mb-8"
+          className="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-300/60 rounded-full px-4 py-1.5 text-yellow-300 text-xs md:text-sm font-medium mb-6"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
           Referência no Norte do Mato Grosso
@@ -33,7 +33,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-6"
+          className="font-display text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.02] mb-5"
         >
           Energia limpa para{' '}
           <span className="text-yellow-400">Sinop</span>
@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10"
+          className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-8"
         >
           Instalamos usinas fotovoltaicas para empresas e residências com qualidade garantida e suporte local.
         </motion.p>
@@ -61,13 +61,13 @@ export default function Hero() {
             href="https://wa.me/5566999832633"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary px-8 py-4 text-base font-bold rounded-full"
+            className="btn-primary px-7 py-3.5 text-base font-bold rounded-full"
           >
             Falar no WhatsApp
           </a>
           <a
             href="#projetos"
-            className="btn-outline px-8 py-4 text-base font-bold rounded-full"
+            className="btn-outline px-7 py-3.5 text-base font-bold rounded-full"
           >
             Ver Projetos
           </a>

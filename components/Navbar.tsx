@@ -18,36 +18,32 @@ export default function Navbar() {
   }, []);
 
   const navLinkClass = "font-medium transition-colors text-white/60 hover:text-white text-sm";
-  const scrollProgress = Math.min(scrollY / 180, 1);
-
-  const headerVerticalPadding = 18 - 8 * scrollProgress;
-  const logoHeight = 64 - 22 * scrollProgress;
-  const headerBgAlpha = 0.25 + 0.55 * scrollProgress;
-  const blurPx = 8 + 10 * scrollProgress;
-  const borderAlpha = 0.12 + 0.22 * scrollProgress;
+  const isScrolled = scrollY > 24;
 
   return (
     <header
       className="fixed top-0 left-0 w-full z-50 transition-colors duration-200"
       style={{
-        paddingTop: `${headerVerticalPadding}px`,
-        paddingBottom: `${headerVerticalPadding}px`,
-        backgroundColor: `rgba(10, 10, 10, ${headerBgAlpha})`,
-        backdropFilter: `blur(${blurPx}px)`,
-        WebkitBackdropFilter: `blur(${blurPx}px)`,
-        borderBottom: `1px solid rgba(255, 255, 255, ${borderAlpha})`,
+        paddingTop: isScrolled ? "6px" : "8px",
+        paddingBottom: isScrolled ? "6px" : "8px",
+        backgroundColor: isScrolled ? "rgba(10, 10, 10, 0.72)" : "rgba(10, 10, 10, 0.52)",
+        backdropFilter: isScrolled ? "blur(14px)" : "blur(10px)",
+        WebkitBackdropFilter: isScrolled ? "blur(14px)" : "blur(10px)",
+        borderBottom: isScrolled
+          ? "1px solid rgba(255, 255, 255, 0.26)"
+          : "1px solid rgba(255, 255, 255, 0.14)",
       }}
     >
       <div className="mx-auto max-w-[1200px] px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center h-[74px] overflow-hidden">
           <Image
             src="/images/projects/Logo Deitada - Fundo transparente.png"
             alt="Dorata Energia"
             width={220}
             height={50}
-            className="w-auto transition-all duration-200"
-            style={{ height: `${logoHeight}px` }}
+            className="w-auto transition-transform duration-200"
+            style={{ height: "160px", transform: "translateY(0px)" }}
             priority
           />
         </Link>

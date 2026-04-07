@@ -45,3 +45,4 @@ next-env.d.ts
 .superpowers/
 public/images/usinas/*.MP4
 public/images/usinas/*.mp4
+.worktrees/

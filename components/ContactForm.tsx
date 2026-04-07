@@ -64,7 +64,7 @@ export default function ContactForm() {
             {[
               { icon: <Phone size={20} className="text-yellow-400" />, title: "Telefone / WhatsApp", lines: ["66 99983 2633", "Seg - Sex, 8h às 18h"] },
               { icon: <Mail size={20} className="text-yellow-400" />, title: "Email", lines: ["suporte@dorataenergia.com"] },
-              { icon: <MapPin size={20} className="text-yellow-400" />, title: "Endereço", lines: ["Av. Paulista, 1000 - Sala 123", "Bela Vista, São Paulo - SP"] },
+              { icon: <MapPin size={20} className="text-yellow-400" />, title: "Endereço", lines: ["Av. André Antônio Maggi, 421B", "Jardim Maringá, Sinop - MT, 78559-899"] },
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-yellow-400/10 border border-yellow-400/20 rounded-xl flex items-center justify-center shrink-0">

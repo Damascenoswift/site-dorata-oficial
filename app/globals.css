@@ -139,6 +139,19 @@ body {
   will-change: transform;
 }
 
+/* Convert partner logos to a homogeneous monochrome style on dark background */
+.logo-mono-image {
+  filter: grayscale(100%) invert(100%) contrast(112%) brightness(108%);
+  mix-blend-mode: screen;
+  opacity: 0.84;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+
+.group:hover .logo-mono-image {
+  opacity: 1;
+  filter: grayscale(100%) invert(100%) contrast(116%) brightness(116%);
+}
+
 /* Leaflet popup styles */
 .dorata-popup .leaflet-popup-content-wrapper {
   background: #1a1a1a;

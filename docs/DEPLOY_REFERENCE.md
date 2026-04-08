@@ -5,7 +5,7 @@ Este é o **alvo oficial** para todas as alterações e deploys deste projeto.
 ## Repositório Git oficial
 
 - Remote: `origin`
-- URL: `https://github.com/Damascenoswift/site-dorata.git`
+- URL: `https://github.com/Damascenoswift/site-dorata-oficial.git`
 - Branch de produção: `main`
 
 ## Projeto Vercel oficial

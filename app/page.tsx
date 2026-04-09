@@ -7,6 +7,8 @@ import LogoCarousel from '@/components/LogoCarousel'
 import ProjectReel from '@/components/ProjectReel'
 import SinopMapDynamic from '@/components/SinopMapDynamic'
 import Testimonials from '@/components/Testimonials'
+import About from '@/components/About'
+import ProductsSummaryStory from '@/components/ProductsSummaryStory'
 import RentalBlock from '@/components/RentalBlock'
 import FAQ from '@/components/FAQ'
 import ContactForm from '@/components/ContactForm'
@@ -41,6 +43,12 @@ export default function Home() {
 
       {/* 06 — Depoimentos */}
       <Testimonials />
+
+      {/* 06B — Sobre nós */}
+      <About />
+
+      {/* 06C — Resumo dinâmico das soluções */}
+      <ProductsSummaryStory />
 
       {/* 07 — Energia por Assinatura */}
       <RentalBlock />

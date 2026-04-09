@@ -71,9 +71,9 @@ export default function Navbar() {
                   <div className="font-semibold text-white text-sm">Usina de Investimento</div>
                   <div className="text-xs text-white/50 mt-0.5">Retorno garantido com energia</div>
                 </Link>
-                <Link href="#contact" className="block px-4 py-3 hover:bg-white/5 rounded-xl transition-colors">
+                <Link href="/nossos-produtos#mobilidade-eletrica" className="block px-4 py-3 hover:bg-white/5 rounded-xl transition-colors">
                   <div className="font-semibold text-white text-sm">Mobilidade Elétrica</div>
-                  <div className="text-xs text-white/50 mt-0.5">Soluções para carregamento</div>
+                  <div className="text-xs text-white/50 mt-0.5">A Dorata fornece o carregador e instala tudo</div>
                 </Link>
               </div>
             </div>
@@ -111,8 +111,10 @@ export default function Navbar() {
           >
             <div className="flex flex-col gap-5">
               <Link href="#solutions" className="text-white/70 hover:text-white font-medium transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Soluções</Link>
+              <Link href="/nossos-produtos" className="text-white/70 hover:text-white font-medium transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Nossos Produtos</Link>
               <Link href="#about" className="text-white/70 hover:text-white font-medium transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Sobre Nós</Link>
               <Link href="/energia-por-assinatura" className="text-white/70 hover:text-white font-medium transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Energia por Assinatura</Link>
+              <Link href="/nossos-produtos#mobilidade-eletrica" className="text-white/70 hover:text-white font-medium transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Mobilidade Elétrica</Link>
               <Link
                 href="#contact"
                 className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-full text-center hover:bg-yellow-300 transition-colors"

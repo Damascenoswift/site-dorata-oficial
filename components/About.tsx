@@ -6,10 +6,34 @@ import { staggerContainer, staggerItem, viewportOnce } from "@/lib/animations";
 
 export default function About() {
   const team = [
-    { name: "Moacir Omizzollo",         role: "FOUNDER", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop" },
-    { name: "Moacir Junior Omizzollo",  role: "CEO",     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300&auto=format&fit=crop" },
-    { name: "Cássia Ap. Ribeiro Omizzollo", role: "CFO", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop" },
-    { name: "Bruno Felipe Omizzollo",   role: "COO",     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop" },
+    {
+      name: "Moacir Junior Omizzollo",
+      roleEn: "CEO",
+      rolePt: "Diretor Comercial",
+      formation: "Formação: Engenheiro Elétrico",
+      image: "/images/team/moacir-junior-omizzollo.jpg",
+    },
+    {
+      name: "Bruno Omizzollo",
+      roleEn: "COO",
+      rolePt: "Diretor de Operações",
+      formation: "Formação: Engenheiro Civil",
+      image: "/images/team/bruno-omizzollo.jpg",
+    },
+    {
+      name: "Cassia Omizzollo",
+      roleEn: "CFO",
+      rolePt: "Diretora Administrativa",
+      formation: "Formação: Ciências Contábeis",
+      image: "/images/team/cassia-omizzollo.jpeg",
+    },
+    {
+      name: "Moacir Omizzollo",
+      roleEn: "FOUNDER",
+      rolePt: "Fundador",
+      formation: "",
+      image: "/images/team/moacir-omizzollo.jpg",
+    },
   ];
 
   return (
@@ -23,7 +47,7 @@ export default function About() {
             viewport={viewportOnce}
             className="section-chip mb-4 block w-fit"
           >
-            Sobre A Dorata
+            Sobre nós
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -32,8 +56,7 @@ export default function About() {
             transition={{ delay: 0.1, duration: 0.7, ease: "easeOut" }}
             className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight tracking-[-0.02em]"
           >
-            Liderança que{" "}
-            <span className="text-yellow-400">inspira o futuro</span>
+            Quem faz a <span className="text-yellow-400">Dorata acontecer</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +65,7 @@ export default function About() {
             transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
             className="text-white/50 mt-4 text-lg leading-relaxed"
           >
-            Nossa missão é democratizar o acesso à energia limpa com transparência e eficiência.
+            Time fundador e diretoria da Dorata com atuação comercial, operacional e administrativa.
           </motion.p>
         </div>
 
@@ -65,8 +88,14 @@ export default function About() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <p className="text-yellow-400 text-xs font-semibold tracking-[0.1em] uppercase mb-1">{member.role}</p>
+              <p className="text-yellow-400 text-xs font-semibold tracking-[0.1em] uppercase mb-1">
+                {member.roleEn}
+              </p>
               <h3 className="font-display text-white font-bold text-lg leading-tight">{member.name}</h3>
+              <p className="text-white/55 text-sm mt-1">{member.rolePt}</p>
+              {member.formation && (
+                <p className="text-white/40 text-xs mt-1">{member.formation}</p>
+              )}
             </motion.div>
           ))}
         </motion.div>
